@@ -6,6 +6,7 @@
 package com.crocstudios.lp.sprint01;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  *
@@ -14,21 +15,21 @@ import java.util.Random;
 public class TelaAplicacao extends javax.swing.JFrame {
     Integer leituraAtual = 0;
     
-    Integer mediaCPU;
-    Integer maiorCPU;
-    Integer menorCPU;
-    Integer todosValoresCPU = 0;
+    Double mediaCPU;
+    Double maiorCPU;
+    Double menorCPU;
+    Double todosValoresCPU = 0.0;
     
     
-    Integer mediaDisco;
-    Integer maiorDisco;
-    Integer menorDisco;
-    Integer todosValoresDisco = 0;
+    Double mediaDisco;
+    Double maiorDisco;
+    Double menorDisco;
+    Double todosValoresDisco = 0.0;
     
-    Integer mediaMemoria;
-    Integer maiorMemoria;
-    Integer menorMemoria;
-    Integer todosValoresMemoria = 0;
+    Double mediaMemoria;
+    Double maiorMemoria;
+    Double menorMemoria;
+    Double todosValoresMemoria = 0.0;
     /**
      * Creates new form TelaAplicacao
      */
@@ -65,7 +66,6 @@ public class TelaAplicacao extends javax.swing.JFrame {
         lbTitulo.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lbTitulo.setText("Monitoramento de perfomance computacional");
 
-        pbCPU.setMaximum(100);
         pbCPU.setMaximumSize(new java.awt.Dimension(32767, 150));
 
         lbCPU.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
@@ -105,38 +105,38 @@ public class TelaAplicacao extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(260, 260, 260)
-                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
                 .addGap(214, 214, 214))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pbCPU, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lbCPU, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)))
+                        .addGap(46, 46, 46)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pbCPU, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(149, 149, 149)
+                        .addComponent(lbCPU, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
+                        .addComponent(btLeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pbDisco, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btLeitura, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pbMemoria, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pbDisco, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 277, Short.MAX_VALUE)
+                            .addComponent(pbMemoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
+                        .addGap(107, 107, 107)
                         .addComponent(lbDisco, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(223, 223, 223)
+                        .addGap(249, 249, 249)
                         .addComponent(lbMemoria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(156, 156, 156))))
+                        .addGap(123, 123, 123))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,15 +153,15 @@ public class TelaAplicacao extends javax.swing.JFrame {
                     .addComponent(pbCPU, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pbMemoria, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pbDisco, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(42, 42, 42)
                 .addComponent(btLeitura)
-                .addGap(40, 40, 40)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jScrollPane5)
                         .addComponent(jScrollPane2))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
 
         pack();
@@ -170,16 +170,17 @@ public class TelaAplicacao extends javax.swing.JFrame {
     private void btLeituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLeituraActionPerformed
        
     leituraAtual++;
+    pbCPU.setStringPainted(true);
+    pbDisco.setStringPainted(true);
+    pbMemoria.setStringPainted(true);
+     
+    Double leituraAtualCPU = ThreadLocalRandom.current().nextDouble(0,100);    
+    Double leituraAtualDisco = ThreadLocalRandom.current().nextDouble(0, 950);
+    Double leituraAtualMemoria = ThreadLocalRandom.current().nextDouble(0,8);
     
-    Random leituraAtualGeral = new Random();
-    
-    Integer leituraAtualCPU = leituraAtualGeral.nextInt(100);
-    Integer leituraAtualDisco = leituraAtualGeral.nextInt(950);
-    Integer leituraAtualMemoria = leituraAtualGeral.nextInt(8);
-    
-    Integer porcentagemAtualCPU = ((100 * leituraAtualCPU) / 100);
-    Integer porcentagemAtualDisco = ((100 * leituraAtualDisco) / 950);
-    Integer porcentagemAtualMemoria = ((100 * leituraAtualMemoria) / 8);
+    Integer porcentagemAtualCPU = ((100 * leituraAtualCPU.intValue()) / 100);
+    Integer porcentagemAtualDisco = ((100 * leituraAtualDisco.intValue()) / 950);
+    Integer porcentagemAtualMemoria = ((100 * leituraAtualMemoria.intValue()) / 8);
     
     pbCPU.setValue(porcentagemAtualCPU);
     pbDisco.setValue(porcentagemAtualDisco);
@@ -218,7 +219,7 @@ public class TelaAplicacao extends javax.swing.JFrame {
         
         
         if(leituraAtualDisco < menorDisco){
-            menorDisco = leituraAtualCPU;
+            menorDisco = leituraAtualDisco;
         }    
         if(leituraAtualDisco > maiorDisco){
             maiorDisco = leituraAtualDisco;
@@ -232,15 +233,15 @@ public class TelaAplicacao extends javax.swing.JFrame {
         }      
     }
         
-    taCPU.setText(String.format("Uso Atual de CPU = %d%% \n Uso médio de CPU = %d%% \n Uso máximo de CPU = %d%% \n Uso mínimo de CPU = %d%%"
+    taCPU.setText(String.format("Uso Atual de CPU = %.2f%% \n Uso médio de CPU = %.2f%% \n Uso máximo de CPU = %.2f%% \n Uso mínimo de CPU = %.2f%%"
     , leituraAtualCPU,mediaCPU,maiorCPU,menorCPU));
 
 
-    taDisco.setText(String.format("Uso Atual de Disco = %dGB(%d%%) \n Uso médio de Disco = %dGB(%d%%)  \n Uso máximo de Disco = %dGB(%d%%)  \n Uso mínimo de Disco = %dGB(%d%%)" 
-    , leituraAtualDisco,porcentagemAtualDisco,mediaDisco,((mediaDisco * 100)/ 950),maiorDisco,((maiorDisco * 100)/950),menorDisco,((menorDisco * 100) / 950)));
+    taDisco.setText(String.format("Uso Atual de Disco = %.2fGB(%.2f%%) \n Uso médio de Disco = %.2fGB(%.2f%%)  \n Uso máximo de Disco = %.2fGB(%.2f%%)  \n Uso mínimo de Disco = %.2fGB(%.2f%%)" 
+    , leituraAtualDisco,porcentagemAtualDisco.doubleValue(),mediaDisco,((mediaDisco * 100)/ 950),maiorDisco,((maiorDisco * 100)/950),menorDisco,((menorDisco * 100) / 950)));
 
-    taMemoria.setText(String.format("Uso Atual de Memoria = %dGB(%d%%)  \n Uso médio de Memoria = %dGB(%d%%)  \n Uso máximo de Memoria = %dGB(%d%%)  \n Uso mínimo de Memoria = %dGB(%d%%)"
-    , leituraAtualMemoria,porcentagemAtualMemoria,mediaMemoria,((mediaMemoria * 100) / 8),maiorMemoria,((maiorMemoria * 100) / 8),menorMemoria, ((menorMemoria * 100) / 8)));
+    taMemoria.setText(String.format("Uso Atual de Memoria = %.2fGB(%.2f%%)  \n Uso médio de Memoria = %.2fGB(%.2f%%)  \n Uso máximo de Memoria = %.2fGB(%.2f%%)  \n Uso mínimo de Memoria = %.2fGB(%.2f%%)"
+    , leituraAtualMemoria,porcentagemAtualMemoria.doubleValue(),mediaMemoria,((mediaMemoria * 100) / 8),maiorMemoria,((maiorMemoria * 100) / 8),menorMemoria, ((menorMemoria * 100) / 8)));
     
     
     }//GEN-LAST:event_btLeituraActionPerformed
