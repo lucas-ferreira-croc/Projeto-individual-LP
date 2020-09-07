@@ -5,7 +5,6 @@
  */
 package com.crocstudios.lp.sprint01;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -243,7 +242,7 @@ public class TelaAplicacao extends javax.swing.JFrame {
     taMemoria.setText(String.format("Uso Atual de Memoria = %.2fGB(%.2f%%)  \n Uso médio de Memoria = %.2fGB(%.2f%%)  \n Uso máximo de Memoria = %.2fGB(%.2f%%)  \n Uso mínimo de Memoria = %.2fGB(%.2f%%)"
     , leituraAtualMemoria,porcentagemAtualMemoria.doubleValue(),mediaMemoria,((mediaMemoria * 100) / 8),maiorMemoria,((maiorMemoria * 100) / 8),menorMemoria, ((menorMemoria * 100) / 8)));
     
-    
+        
     }//GEN-LAST:event_btLeituraActionPerformed
 
     /**
